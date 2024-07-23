@@ -471,7 +471,7 @@ pub(crate) fn fields_from_stream<R: Read>(
     deserialize_bank_fields(snapshot_stream)
 }
 
-pub(crate) fn fields_from_streams(
+pub fn fields_from_streams(
     snapshot_streams: &mut SnapshotStreams<impl Read>,
 ) -> std::result::Result<
     (
@@ -976,7 +976,7 @@ pub struct ReconstructedAccountsDbInfo {
 }
 
 #[allow(clippy::too_many_arguments)]
-fn reconstruct_accountsdb_from_fields<E>(
+pub fn reconstruct_accountsdb_from_fields<E>(
     snapshot_accounts_db_fields: SnapshotAccountsDbFields<E>,
     account_paths: &[PathBuf],
     storage_and_next_append_vec_id: StorageAndNextAccountsFileId,
