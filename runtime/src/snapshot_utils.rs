@@ -292,7 +292,7 @@ pub struct UnpackedSnapshotsDirAndVersion {
 
 /// Helper type for passing around account storage map and next append vec id
 /// for reconstructing accounts from a snapshot
-pub(crate) struct StorageAndNextAccountsFileId {
+pub struct StorageAndNextAccountsFileId {
     pub storage: AccountStorageMap,
     pub next_append_vec_id: AtomicAccountsFileId,
 }
@@ -1726,7 +1726,7 @@ fn unarchive_snapshot(
 
 /// Streams snapshot dir files across channel
 /// Follow the flow of streaming_unarchive_snapshot(), but handle the from_dir case.
-fn streaming_snapshot_dir_files(
+pub fn streaming_snapshot_dir_files(
     file_sender: Sender<PathBuf>,
     snapshot_file_path: impl Into<PathBuf>,
     snapshot_version_path: impl Into<PathBuf>,

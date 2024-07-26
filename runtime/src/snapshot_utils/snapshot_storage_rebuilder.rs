@@ -40,7 +40,7 @@ lazy_static! {
 }
 
 /// Convenient wrapper for snapshot version and rebuilt storages
-pub(crate) struct RebuiltSnapshotStorage {
+pub struct RebuiltSnapshotStorage {
     /// Snapshot version
     pub snapshot_version: SnapshotVersion,
     /// Rebuilt storages
@@ -49,7 +49,7 @@ pub(crate) struct RebuiltSnapshotStorage {
 
 /// Stores state for rebuilding snapshot storages
 #[derive(Debug)]
-pub(crate) struct SnapshotStorageRebuilder {
+pub struct SnapshotStorageRebuilder {
     /// Receiver for unpacked snapshot storage files
     file_receiver: Receiver<PathBuf>,
     /// Number of threads to rebuild with
@@ -74,7 +74,7 @@ pub(crate) struct SnapshotStorageRebuilder {
 
 impl SnapshotStorageRebuilder {
     /// Synchronously spawns threads to rebuild snapshot storages
-    pub(crate) fn rebuild_storage(
+    pub fn rebuild_storage(
         file_receiver: Receiver<PathBuf>,
         num_threads: usize,
         next_append_vec_id: Arc<AtomicAccountsFileId>,

@@ -1086,7 +1086,7 @@ impl<T: IndexValue, U: DiskIndexValue + From<T> + Into<T>> InMemAccountsIndex<T,
         possible_evictions.get_possible_evictions().unwrap()
     }
 
-    fn write_startup_info_to_disk(&self) {
+    pub fn write_startup_info_to_disk(&self) {
         let insert = std::mem::take(&mut *self.startup_info.insert.lock().unwrap());
         if insert.is_empty() {
             // nothing to insert for this bin

@@ -13,7 +13,7 @@ pub struct SerializableAccountStorageEntry {
     accounts_current_len: usize,
 }
 
-pub(super) trait SerializableStorage {
+pub trait SerializableStorage {
     fn id(&self) -> SerializedAccountsFileId;
     fn current_len(&self) -> usize;
 }
