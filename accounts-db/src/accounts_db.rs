@@ -657,12 +657,12 @@ pub struct IndexGenerationInfo {
 
 #[derive(Debug, Default)]
 pub struct SlotIndexGenerationInfo {
-    insert_time_us: u64,
-    num_accounts: u64,
-    num_accounts_rent_paying: usize,
-    accounts_data_len: u64,
-    amount_to_top_off_rent: u64,
-    rent_paying_accounts_by_partition: Vec<Pubkey>,
+    pub insert_time_us: u64,
+    pub num_accounts: u64,
+    pub num_accounts_rent_paying: usize,
+    pub accounts_data_len: u64,
+    pub amount_to_top_off_rent: u64,
+    pub rent_paying_accounts_by_partition: Vec<Pubkey>,
 }
 
 #[derive(Default, Debug)]
