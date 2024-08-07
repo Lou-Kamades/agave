@@ -206,10 +206,10 @@ impl Index {
         &self.coding
     }
 
-    pub(crate) fn data_mut(&mut self) -> &mut ShredIndex {
+    pub fn data_mut(&mut self) -> &mut ShredIndex {
         &mut self.data
     }
-    pub(crate) fn coding_mut(&mut self) -> &mut ShredIndex {
+    pub fn coding_mut(&mut self) -> &mut ShredIndex {
         &mut self.coding
     }
 }
