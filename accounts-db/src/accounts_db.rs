@@ -599,7 +599,7 @@ pub struct IndexGenerationInfo {
 }
 
 #[derive(Debug, Default)]
-struct SlotIndexGenerationInfo {
+pub struct SlotIndexGenerationInfo {
     insert_time_us: u64,
     num_accounts: u64,
     num_accounts_rent_paying: usize,
@@ -630,13 +630,13 @@ struct GenerateIndexTimings {
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
-struct StorageSizeAndCount {
+pub struct StorageSizeAndCount {
     /// total size stored, including both alive and dead bytes
     pub stored_size: usize,
     /// number of accounts in the storage including both alive and dead accounts
     pub count: usize,
 }
-type StorageSizeAndCountMap = DashMap<AppendVecId, StorageSizeAndCount>;
+pub type StorageSizeAndCountMap = DashMap<AppendVecId, StorageSizeAndCount>;
 
 impl GenerateIndexTimings {
     pub fn report(&self, startup_stats: &StartupStats) {
@@ -5661,7 +5661,7 @@ impl AccountsDb {
         store
     }
 
-    fn create_and_insert_store(
+    pub fn create_and_insert_store(
         &self,
         slot: Slot,
         size: u64,
@@ -8884,7 +8884,7 @@ impl AccountsDb {
         })
     }
 
-    fn generate_index_for_slot(
+    pub fn generate_index_for_slot(
         &self,
         storage: &Arc<AccountStorageEntry>,
         slot: Slot,
